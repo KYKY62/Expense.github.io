@@ -59,7 +59,9 @@ class HomeView extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CircleAvatar(),
+                        CircleAvatar(
+                          child: Image.asset('assets/icons/avatar.png'),
+                        ),
                         Row(
                           children: const [
                             Icon(
@@ -273,10 +275,10 @@ class HomeView extends StatelessWidget {
                               ),
                             );
                           },
-                        )
+                        ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             )
@@ -286,8 +288,8 @@ class HomeView extends StatelessWidget {
           backgroundColor: appWhite,
           color: appPrimary,
           activeColor: appPrimary,
-          items: [
-            TabItem(icon: Icons.home, title: 'Home'),
+          items: const [
+            TabItem(icon: Icons.add_home, title: 'Home'),
             TabItem(icon: Icons.map, title: 'Transaction'),
             TabItem(icon: Icons.add, title: 'Add'),
             TabItem(icon: Icons.message, title: 'Budget'),
