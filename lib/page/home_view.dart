@@ -1,311 +1,169 @@
-import 'package:expense_tracker/utils/colors.dart';
-import 'package:expense_tracker/widgets/graphic.dart';
-import 'package:expense_tracker/widgets/info_balance.dart';
+import 'package:expense_tracker/page/bottomNavBar/transaction_page.dart';
+import 'package:expense_tracker/page/bottomNavBar/home_page.dart';
+import 'package:expense_tracker/page/bottomNavBar/profile_page.dart';
+import 'package:expense_tracker/page/bottomNavBar/budget_page.dart';
+import 'package:expense_tracker/widgets/floating_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
 
-  final List<TransactionData> transactionData = [
-    TransactionData(
-      "assets/icons/icon_shop.png",
-      "Shopping",
-      "Buy some grocery",
-      "- \$120",
-      "10:00 AM",
-    ),
-    TransactionData(
-      "assets/icons/icon_subs.png",
-      "Subscription",
-      "Disney+ Annual..",
-      "- \$80",
-      "03:30 PM",
-    ),
-    TransactionData(
-      "assets/icons/icon_food.png",
-      "Food",
-      "Buy a ramen",
-      "- \$32",
-      "07:30 PM",
-    ),
-  ];
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int currentTab = 0;
+  Widget currentScreen = HomePage();
 
   @override
   Widget build(BuildContext context) {
+    Widget mainPage() {
+      switch (currentTab) {
+        case 0:
+          return HomePage();
+        case 1:
+          return TransactionPage();
+        case 2:
+          return BudgetPage();
+        case 3:
+          return const ProfilePage();
+        default:
+          return HomePage();
+      }
+    }
+
     return Scaffold(
-        body: Stack(
-          children: [
-            // Background
-            Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    appYellowSoft,
-                    appVioletSoft,
-                  ],
-                ),
-              ),
-            ),
-            // Page View
-            SafeArea(
-              child: Column(
+      floatingActionButton: FloatingWidget(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // WithOut Scrool
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = HomePage();
+                        currentTab = 0;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        CircleAvatar(
-                          child: Image.asset('assets/icons/avatar.png'),
+                        Image.asset(
+                          'assets/icons/icon_home.png',
+                          color:
+                              currentTab == 0 ? Color(0xff7F0DFF) : Colors.grey,
                         ),
-                        Row(
-                          children: const [
-                            Icon(
-                              Icons.keyboard_arrow_down_outlined,
-                              color: appPrimary,
-                            ),
-                            Text("Oktober"),
-                          ],
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.notifications_active,
-                            color: appPrimary,
+                        Text(
+                          "Home",
+                          style: TextStyle(
+                            color: currentTab == 0
+                                ? Color(0xff7F3DFF)
+                                : Colors.grey,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  const Text(
-                    "Account Balance",
-                    style: TextStyle(
-                      color: appTextSoft,
-                    ),
-                  ),
-                  const SizedBox(height: 9),
-                  const Text(
-                    "\$9400",
-                    style: TextStyle(
-                        color: appText,
-                        fontSize: 40,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 27),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      InfoBalance(
-                        isIncome: true,
-                        balance: 5000,
-                      ),
-                      InfoBalance(
-                        isIncome: false,
-                        balance: 1200,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  // With Scrool
-                  Expanded(
-                    child: ListView(
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentScreen = BudgetPage();
+                        currentTab = 1;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(
-                            "Spend Frequency",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
+                        Image.asset(
+                          'assets/icons/icon_transaction.png',
+                          color:
+                              currentTab == 1 ? Color(0xff7F3DFF) : Colors.grey,
+                        ),
+                        Text(
+                          "Transaction",
+                          style: TextStyle(
+                            color: currentTab == 1
+                                ? Color(0xff7F3DFF)
+                                : Colors.grey,
                           ),
-                        ),
-                        const SizedBox(height: 15),
-                        GraphicFrequency(),
-                        const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 5,
-                              ),
-                              decoration: BoxDecoration(
-                                  color: appYellowSoft,
-                                  borderRadius: BorderRadius.circular(16)),
-                              child: const Center(
-                                child: Text(
-                                  "Today",
-                                  style: TextStyle(
-                                    color: appYellow,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const Text(
-                              "Week",
-                              style: TextStyle(
-                                color: appTextSoft,
-                              ),
-                            ),
-                            const Text(
-                              "Month",
-                              style: TextStyle(
-                                color: appTextSoft,
-                              ),
-                            ),
-                            const Text(
-                              "Year",
-                              style: TextStyle(
-                                color: appTextSoft,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "Recent Transaction",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 5,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: appVioletSoft,
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    "See All",
-                                    style: TextStyle(
-                                        color: appPrimary,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        ListView.separated(
-                          separatorBuilder: (context, index) =>
-                              const SizedBox(height: 15),
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: transactionData.length,
-                          itemBuilder: (context, index) {
-                            return ListTile(
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 40),
-                              title: Row(
-                                children: [
-                                  Container(
-                                    width: 80,
-                                    height: 80,
-                                    margin: const EdgeInsets.only(right: 15),
-                                    decoration: BoxDecoration(
-                                      color: appYellowSoft,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Image.asset(
-                                        transactionData.elementAt(index).icon),
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "${transactionData.elementAt(index).title}",
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                            Text(
-                                              "${transactionData.elementAt(index).price}",
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: appRed,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(height: 10),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              "${transactionData.elementAt(index).subTitle}",
-                                              style: const TextStyle(
-                                                color: appTextSoft,
-                                              ),
-                                            ),
-                                            Text(
-                                              "${transactionData.elementAt(index).dtime}",
-                                              style: const TextStyle(
-                                                color: appTextSoft,
-                                              ),
-                                            ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                            );
-                          },
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-            )
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentTab = 2;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icons/icon_budget.png',
+                          color:
+                              currentTab == 2 ? Color(0xff7F3DFF) : Colors.grey,
+                        ),
+                        Text(
+                          "Budget",
+                          style: TextStyle(
+                            color: currentTab == 2
+                                ? Color(0xff7F3DFF)
+                                : Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  MaterialButton(
+                    minWidth: 40,
+                    onPressed: () {
+                      setState(() {
+                        currentTab = 3;
+                      });
+                    },
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/icons/icon_profile.png',
+                          color:
+                              currentTab == 3 ? Color(0xff7F3DFF) : Colors.grey,
+                        ),
+                        Text(
+                          "Profile",
+                          style: TextStyle(
+                              color: currentTab == 3
+                                  ? Color(0xff7F3DFF)
+                                  : Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-        bottomNavigationBar: ConvexAppBar(
-          backgroundColor: appWhite,
-          color: appPrimary,
-          activeColor: appPrimary,
-          items: const [
-            TabItem(icon: Icons.add_home, title: 'Home'),
-            TabItem(icon: Icons.map, title: 'Transaction'),
-            TabItem(icon: Icons.add, title: 'Add'),
-            TabItem(icon: Icons.message, title: 'Budget'),
-            TabItem(icon: Icons.people, title: 'Profile'),
-          ],
-          initialActiveIndex: 2, //optional, default as 0
-          onTap: (int i) => print('click index=$i'),
-        ));
+      ),
+      body: mainPage(),
+    );
   }
-}
-
-class TransactionData {
-  TransactionData(this.icon, this.title, this.subTitle, this.price, this.dtime);
-  final String icon;
-  final String title;
-  final String subTitle;
-  final String price;
-  final String dtime;
 }

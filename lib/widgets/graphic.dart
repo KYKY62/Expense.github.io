@@ -21,6 +21,7 @@ class GraphicFrequency extends StatelessWidget {
       child: Container(
         height: 200,
         width: chartData.length * 100,
+        margin: const EdgeInsets.only(right: 10),
         child: SfCartesianChart(
           primaryXAxis: DateTimeAxis(),
           series: <ChartSeries>[
