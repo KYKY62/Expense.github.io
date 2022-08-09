@@ -34,6 +34,7 @@ class _HomeViewState extends State<HomeView> {
     }
 
     return Scaffold(
+      body: mainPage(),
       floatingActionButton: FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -60,14 +61,15 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Image.asset(
                           'assets/icons/icon_home.png',
-                          color:
-                              currentTab == 0 ? Color(0xff7F0DFF) : Colors.grey,
+                          color: currentTab == 0
+                              ? const Color(0xff7F0DFF)
+                              : Colors.grey,
                         ),
                         Text(
                           "Home",
                           style: TextStyle(
                             color: currentTab == 0
-                                ? Color(0xff7F3DFF)
+                                ? const Color(0xff7F3DFF)
                                 : Colors.grey,
                           ),
                         ),
@@ -87,14 +89,15 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Image.asset(
                           'assets/icons/icon_transaction.png',
-                          color:
-                              currentTab == 1 ? Color(0xff7F3DFF) : Colors.grey,
+                          color: currentTab == 1
+                              ? const Color(0xff7F3DFF)
+                              : Colors.grey,
                         ),
                         Text(
                           "Transaction",
                           style: TextStyle(
                             color: currentTab == 1
-                                ? Color(0xff7F3DFF)
+                                ? const Color(0xff7F3DFF)
                                 : Colors.grey,
                           ),
                         ),
@@ -118,14 +121,15 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Image.asset(
                           'assets/icons/icon_budget.png',
-                          color:
-                              currentTab == 2 ? Color(0xff7F3DFF) : Colors.grey,
+                          color: currentTab == 2
+                              ? const Color(0xff7F3DFF)
+                              : Colors.grey,
                         ),
                         Text(
                           "Budget",
                           style: TextStyle(
                             color: currentTab == 2
-                                ? Color(0xff7F3DFF)
+                                ? const Color(0xff7F3DFF)
                                 : Colors.grey,
                           ),
                         ),
@@ -144,14 +148,15 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Image.asset(
                           'assets/icons/icon_profile.png',
-                          color:
-                              currentTab == 3 ? Color(0xff7F3DFF) : Colors.grey,
+                          color: currentTab == 3
+                              ? const Color(0xff7F3DFF)
+                              : Colors.grey,
                         ),
                         Text(
                           "Profile",
                           style: TextStyle(
                               color: currentTab == 3
-                                  ? Color(0xff7F3DFF)
+                                  ? const Color(0xff7F3DFF)
                                   : Colors.grey),
                         ),
                       ],
@@ -163,7 +168,6 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-      body: mainPage(),
     );
   }
 }

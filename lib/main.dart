@@ -1,3 +1,4 @@
+import 'package:expense_tracker/page/BudgetNavigator/createbudget.dart';
 import 'package:expense_tracker/page/home_view.dart';
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,9 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.transparent,
       ),
       home: HomeView(),
+      routes: {
+        '/createBudget': (context) => const CreateBudget(),
+      },
     );
   }
 }

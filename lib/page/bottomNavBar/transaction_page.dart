@@ -1,20 +1,16 @@
 import 'package:expense_tracker/models/transaction_model.dart';
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:expense_tracker/widgets/filter_widget.dart';
-import 'package:expense_tracker/widgets/graphic.dart';
-import 'package:expense_tracker/widgets/info_balance.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TransactionPage extends StatefulWidget {
-  TransactionPage({Key? key}) : super(key: key);
+  const TransactionPage({Key? key}) : super(key: key);
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();
 }
 
 class _TransactionPageState extends State<TransactionPage> {
-  bool _show = false;
   int currentColor = 1;
   final List<TransactionData> transactionData = [
     TransactionData(
@@ -73,7 +69,7 @@ class _TransactionPageState extends State<TransactionPage> {
                   children: [
                     Center(
                       child: Container(
-                        margin: EdgeInsets.only(top: 16),
+                        margin: const EdgeInsets.only(top: 16),
                         width: 46,
                         height: 5,
                         decoration: BoxDecoration(
@@ -300,13 +296,13 @@ class _TransactionPageState extends State<TransactionPage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "${transactionData.elementAt(index).title}",
+                                      transactionData.elementAt(index).title,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
-                                      "${transactionData.elementAt(index).price}",
+                                      transactionData.elementAt(index).price,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: appRed,
@@ -320,13 +316,13 @@ class _TransactionPageState extends State<TransactionPage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "${transactionData.elementAt(index).subTitle}",
+                                      transactionData.elementAt(index).subTitle,
                                       style: const TextStyle(
                                         color: appTextSoft,
                                       ),
                                     ),
                                     Text(
-                                      "${transactionData.elementAt(index).dtime}",
+                                      transactionData.elementAt(index).dtime,
                                       style: const TextStyle(
                                         color: appTextSoft,
                                       ),
@@ -390,13 +386,13 @@ class _TransactionPageState extends State<TransactionPage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "${transactionData1.elementAt(index).title}",
+                                      transactionData1.elementAt(index).title,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
-                                      "${transactionData1.elementAt(index).price}",
+                                      transactionData1.elementAt(index).price,
                                       style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: appRed,
@@ -410,13 +406,15 @@ class _TransactionPageState extends State<TransactionPage> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "${transactionData1.elementAt(index).subTitle}",
+                                      transactionData1
+                                          .elementAt(index)
+                                          .subTitle,
                                       style: const TextStyle(
                                         color: appTextSoft,
                                       ),
                                     ),
                                     Text(
-                                      "${transactionData1.elementAt(index).dtime}",
+                                      transactionData1.elementAt(index).dtime,
                                       style: const TextStyle(
                                         color: appTextSoft,
                                       ),
