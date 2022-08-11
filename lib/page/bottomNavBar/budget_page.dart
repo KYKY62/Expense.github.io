@@ -1,4 +1,5 @@
 import 'package:expense_tracker/utils/colors.dart';
+import 'package:expense_tracker/widgets/budget%20widget/budget_widget.dart';
 import 'package:flutter/material.dart';
 
 class BudgetPage extends StatelessWidget {
@@ -6,6 +7,8 @@ class BudgetPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isEmpty = false;
+
     Widget topHeaderBudget() {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 42),
@@ -56,50 +59,52 @@ class BudgetPage extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Expanded(
-                      child: Center(
-                        child: Text(
-                          "You don’t have a budget.\nLet’s make one so you in control.",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            color: appTextSoft,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Material(
-                      color: appPrimary,
-                      borderRadius: BorderRadius.circular(16),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(16),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/createBudget');
-                        },
-                        child: const SizedBox(
-                          width: double.infinity,
-                          height: 56,
-                          child: Center(
-                            child: Text(
-                              "Create a budget",
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: appWhite,
+                child: isEmpty == true
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Expanded(
+                            child: Center(
+                              child: Text(
+                                "You don’t have a budget.\nLet’s make one so you in control.",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  color: appTextSoft,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 50),
-                  ],
-                ),
+                          Material(
+                            color: appPrimary,
+                            borderRadius: BorderRadius.circular(16),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(16),
+                              onTap: () {
+                                Navigator.pushNamed(context, '/createBudget');
+                              },
+                              child: const SizedBox(
+                                width: double.infinity,
+                                height: 56,
+                                child: Center(
+                                  child: Text(
+                                    "Create a budget",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                      color: appWhite,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 50),
+                        ],
+                      )
+                    : BudgetWidget(),
               ),
             );
           },
