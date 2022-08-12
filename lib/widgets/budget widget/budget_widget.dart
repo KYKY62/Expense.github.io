@@ -15,7 +15,7 @@ class BudgetWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BudgetItem(
-            ontap: () {},
+            ontap: () => Navigator.pushNamed(context, '/detailBudget'),
             titleColor: appYellow,
             titleBudget: "Shopping",
             budgetCount: "\$0",
