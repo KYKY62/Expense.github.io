@@ -1,4 +1,5 @@
 import 'package:expense_tracker/utils/colors.dart';
+import 'package:expense_tracker/widgets/ButtonWidget/custombutton.dart';
 import 'package:expense_tracker/widgets/budget%20widget/budget_bottomsheet.dart';
 import 'package:flutter/material.dart';
 
@@ -137,27 +138,11 @@ class _DetailBudgetState extends State<DetailBudget> {
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 32),
-            child: Material(
-              color: appPrimary,
-              borderRadius: BorderRadius.circular(16),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(16),
-                onTap: () => Navigator.pushNamed(context, '/editBudget'),
-                child: const SizedBox(
-                  width: double.infinity,
-                  height: 56,
-                  child: Center(
-                    child: Text(
-                      "Edit",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: appWhite,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            child: CustomButton(
+              colorButton: appPrimary,
+              text: "Edit",
+              colorText: appWhite,
+              ontap: () => Navigator.pushNamed(context, '/editBudget'),
             ),
           ),
           const SizedBox(height: 50),

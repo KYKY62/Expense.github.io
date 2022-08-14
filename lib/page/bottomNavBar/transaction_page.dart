@@ -1,5 +1,6 @@
 import 'package:expense_tracker/models/transaction_model.dart';
 import 'package:expense_tracker/utils/colors.dart';
+import 'package:expense_tracker/widgets/ButtonWidget/custombutton.dart';
 import 'package:expense_tracker/widgets/filter_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -161,23 +162,11 @@ class _TransactionPageState extends State<TransactionPage> {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    Container(
-                      width: double.infinity,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        color: appPrimary,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Apply',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: appWhite,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    CustomButton(
+                      colorButton: appPrimary,
+                      text: "Apply",
+                      colorText: appWhite,
+                      ontap: () {},
                     ),
                     const SizedBox(height: 16),
                   ],

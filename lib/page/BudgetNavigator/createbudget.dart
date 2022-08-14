@@ -1,4 +1,5 @@
 import 'package:expense_tracker/utils/colors.dart';
+import 'package:expense_tracker/widgets/ButtonWidget/custombutton.dart';
 import 'package:flutter/material.dart';
 
 import 'package:slidable_button/slidable_button.dart';
@@ -151,28 +152,12 @@ class _CreateBudgetState extends State<CreateBudget> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Material(
-                    color: appPrimary,
-                    borderRadius: BorderRadius.circular(16),
-                    child: InkWell(
-                      onTap: () {},
-                      borderRadius: BorderRadius.circular(16),
-                      child: const SizedBox(
-                        width: double.infinity,
-                        height: 56,
-                        child: Center(
-                          child: Text(
-                            "Continue",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: appWhite,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
+                  CustomButton(
+                    colorButton: appPrimary,
+                    text: "Continue",
+                    colorText: appWhite,
+                    ontap: () {},
+                  ),
                 ],
               ),
             ),
