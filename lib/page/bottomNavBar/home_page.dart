@@ -208,7 +208,7 @@ class HomePage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return ListTile(
                           contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 40),
+                              const EdgeInsets.symmetric(horizontal: 30),
                           title: Row(
                             children: [
                               Container(

@@ -1,5 +1,7 @@
 import 'package:expense_tracker/page/BudgetNavigator/createbudget.dart';
 import 'package:expense_tracker/page/BudgetNavigator/editbudget.dart';
+import 'package:expense_tracker/page/ProfileNavigator/accountprofile.dart';
+import 'package:expense_tracker/page/ProfileNavigator/addnewaccount.dart';
 import 'package:expense_tracker/page/bottomNavBar/profile_page.dart';
 import 'package:expense_tracker/page/bottomNavBar/transaction_page.dart';
 import 'package:expense_tracker/page/home_view.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
         '/createBudget': (context) => const CreateBudget(),
         '/detailBudget': (context) => const DetailBudget(),
         '/editBudget': (context) => const EditBudget(),
+        '/accountProfile': (context) => const AccountProfile(),
+        '/addnewaccount': (context) => const AddNewAccount(),
       },
     );
   }

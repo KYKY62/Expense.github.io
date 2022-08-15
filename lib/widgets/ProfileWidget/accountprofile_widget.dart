@@ -1,16 +1,18 @@
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:flutter/material.dart';
 
-class ProfileWidget extends StatelessWidget {
+class AccountProfileWidget extends StatelessWidget {
   final VoidCallback ontap;
   final String imageList;
   final String text;
+  final String saldo;
 
-  const ProfileWidget({
+  const AccountProfileWidget({
     Key? key,
     required this.ontap,
     required this.imageList,
     required this.text,
+    required this.saldo,
   }) : super(key: key);
 
   @override
@@ -29,13 +31,23 @@ class ProfileWidget extends StatelessWidget {
             child: Image.asset(imageList),
           ),
           const SizedBox(width: 9),
+          Expanded(
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 16,
+                color: appText,
+              ),
+            ),
+          ),
           Text(
-            text,
+            saldo,
             style: const TextStyle(
-              fontSize: 16,
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
               color: appText,
             ),
-          )
+          ),
         ],
       ),
     );

@@ -65,7 +65,7 @@ class ProfilePage extends StatelessWidget {
             child: Column(
               children: [
                 ProfileWidget(
-                  ontap: () {},
+                  ontap: () => Navigator.pushNamed(context, '/accountProfile'),
                   imageList: 'assets/icons/icon_wallet.png',
                   text: 'Account',
                 ),
