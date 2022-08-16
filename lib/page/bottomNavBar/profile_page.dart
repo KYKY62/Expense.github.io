@@ -71,7 +71,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 19),
                 ProfileWidget(
-                  ontap: () {},
+                  ontap: () => Navigator.pushNamed(context, '/profileSetting'),
                   imageList: 'assets/icons/icon_setting.png',
                   text: 'Settings',
                 ),
