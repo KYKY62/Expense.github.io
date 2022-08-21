@@ -23,9 +23,9 @@ class _HomeViewState extends State<HomeView> {
         case 0:
           return HomePage();
         case 1:
-          return TransactionPage();
+          return const TransactionPage();
         case 2:
-          return BudgetPage();
+          return const BudgetPage();
         case 3:
           return const ProfilePage();
         default:
@@ -35,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
 
     return Scaffold(
       body: mainPage(),
-      floatingActionButton: FloatingWidget(),
+      floatingActionButton: const FloatingWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
@@ -80,7 +80,7 @@ class _HomeViewState extends State<HomeView> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = BudgetPage();
+                        currentScreen = const BudgetPage();
                         currentTab = 1;
                       });
                     },

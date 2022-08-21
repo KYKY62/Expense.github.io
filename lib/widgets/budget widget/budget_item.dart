@@ -1,8 +1,10 @@
-import 'package:expense_tracker/utils/colors.dart';
 import 'package:flutter/material.dart';
 
+import 'package:expense_tracker/utils/colors.dart';
+
 class BudgetItem extends StatelessWidget {
-  BudgetItem({
+  const BudgetItem({
+    Key? key,
     required this.ontap,
     required this.titleBudget,
     required this.titleColor,
@@ -11,7 +13,7 @@ class BudgetItem extends StatelessWidget {
     required this.valueColor,
     required this.notifLimit,
     required this.notifWarning,
-  });
+  }) : super(key: key);
   final VoidCallback ontap;
   final String titleBudget;
   final Color titleColor;

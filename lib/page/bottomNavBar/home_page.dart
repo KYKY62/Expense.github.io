@@ -231,13 +231,17 @@ class HomePage extends StatelessWidget {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "${transactionData.elementAt(index).title}",
+                                          transactionData
+                                              .elementAt(index)
+                                              .title,
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                         Text(
-                                          "${transactionData.elementAt(index).price}",
+                                          transactionData
+                                              .elementAt(index)
+                                              .price,
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: appRed,
@@ -251,13 +255,17 @@ class HomePage extends StatelessWidget {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "${transactionData.elementAt(index).subTitle}",
+                                          transactionData
+                                              .elementAt(index)
+                                              .subTitle,
                                           style: const TextStyle(
                                             color: appTextSoft,
                                           ),
                                         ),
                                         Text(
-                                          "${transactionData.elementAt(index).dtime}",
+                                          transactionData
+                                              .elementAt(index)
+                                              .dtime,
                                           style: const TextStyle(
                                             color: appTextSoft,
                                           ),

@@ -44,7 +44,6 @@ class _DetailBudgetState extends State<DetailBudget> {
         actions: [
           GestureDetector(
             onTap: () {
-              print("berhasil tampil");
               setState(() {
                 bottomsheetwidget(context);
               });

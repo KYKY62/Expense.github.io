@@ -1,7 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class FloatingWidget extends StatefulWidget {
+  const FloatingWidget({Key? key}) : super(key: key);
+
   @override
   _FloatingWidgetState createState() => _FloatingWidgetState();
 }
@@ -68,13 +72,11 @@ class _FloatingWidgetState extends State<FloatingWidget>
                   ..scale(degOneTranslationAnimation.value),
             alignment: Alignment.center,
             child: CircularButton(
-              color: Color(0xffFD3C4A),
+              color: const Color(0xffFD3C4A),
               width: 50,
               height: 50,
               iconImage: "assets/icons/icon_income.png",
-              onPress: () {
-                print('First Button');
-              },
+              onPress: () {},
             ),
           ),
         ),
@@ -87,13 +89,11 @@ class _FloatingWidgetState extends State<FloatingWidget>
                   ..scale(degTwoTranslationAnimation.value),
             alignment: Alignment.center,
             child: CircularButton(
-              color: Color(0xff0077FF),
+              color: const Color(0xff0077FF),
               width: 50,
               height: 50,
               iconImage: "assets/icons/icon_convert_currency.png",
-              onPress: () {
-                print('Second button');
-              },
+              onPress: () {},
             ),
           ),
         ),
@@ -106,13 +106,11 @@ class _FloatingWidgetState extends State<FloatingWidget>
                   ..scale(degThreeTranslationAnimation.value),
             alignment: Alignment.center,
             child: CircularButton(
-              color: Color(0xff00A86B),
+              color: const Color(0xff00A86B),
               width: 50,
               height: 50,
               iconImage: "assets/icons/icon_expanse.png",
-              onPress: () {
-                print("Expanse");
-              },
+              onPress: () {},
             ),
           ),
         ),
@@ -126,7 +124,6 @@ class _FloatingWidgetState extends State<FloatingWidget>
             height: 60,
             iconImage: "assets/icons/icon_add.png",
             onPress: () {
-              print("object");
               if (animationController.isCompleted) {
                 animationController.reverse();
               } else {

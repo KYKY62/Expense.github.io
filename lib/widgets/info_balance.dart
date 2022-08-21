@@ -40,7 +40,7 @@ class InfoBalance extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  isIncome == true ? "Income" : "Expenses",
+                  isIncome == true ? "Income" : "Expense",
                   style: const TextStyle(
                     color: appWhite,
                   ),

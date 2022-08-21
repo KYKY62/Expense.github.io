@@ -87,7 +87,7 @@ class _CreateBudgetState extends State<CreateBudget> {
                       ),
                       GestureDetector(
                         onTap: () {},
-                        child: Icon(
+                        child: const Icon(
                           Icons.keyboard_arrow_down,
                           color: appTextSoft,
                         ),

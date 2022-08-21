@@ -104,7 +104,7 @@ class BudgetPage extends StatelessWidget {
                           const SizedBox(height: 50),
                         ],
                       )
-                    : BudgetWidget(),
+                    : const BudgetWidget(),
               ),
             );
           },

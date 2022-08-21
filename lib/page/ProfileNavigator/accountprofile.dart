@@ -1,7 +1,6 @@
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:expense_tracker/widgets/ButtonWidget/custombutton.dart';
 import 'package:expense_tracker/widgets/ProfileWidget/accountprofile_widget.dart';
-import 'package:expense_tracker/widgets/ProfileWidget/profile_widget.dart';
 import 'package:flutter/material.dart';
 
 class AccountProfile extends StatelessWidget {

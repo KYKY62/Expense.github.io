@@ -1,6 +1,5 @@
 import 'package:expense_tracker/utils/colors.dart';
 import 'package:expense_tracker/widgets/ProfileWidget/settinglist_widget.dart';
-import 'package:expense_tracker/widgets/ProfileWidget/settingprofile_widget.dart';
 import 'package:flutter/material.dart';
 
 class SettingLanguagePage extends StatelessWidget {

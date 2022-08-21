@@ -7,13 +7,14 @@ class FilterWidget extends StatefulWidget {
   final String filterBy2;
   final String filterBy3;
   final bool isAvaible;
-  FilterWidget({
+  const FilterWidget({
+    Key? key,
     required this.title,
     required this.filterBy1,
     required this.filterBy2,
     required this.filterBy3,
     required this.isAvaible,
-  });
+  }) : super(key: key);
 
   @override
   State<FilterWidget> createState() => _FilterWidgetState();
@@ -30,7 +31,7 @@ class _FilterWidgetState extends State<FilterWidget> {
       children: [
         Text(
           widget.title,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),
@@ -147,7 +148,7 @@ class _FilterWidgetState extends State<FilterWidget> {
                   ),
                 ),
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }

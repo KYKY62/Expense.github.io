@@ -20,11 +20,13 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(DevicePreview(
     enabled: !kReleaseMode,
-    builder: (context) => MyApp(),
+    builder: (context) => const MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: appWhite,
         canvasColor: Colors.transparent,
       ),
-      home: HomeView(),
+      home: const HomeView(),
       routes: {
         '/createBudget': (context) => const CreateBudget(),
         '/detailBudget': (context) => const DetailBudget(),

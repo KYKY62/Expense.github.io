@@ -110,7 +110,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       ],
                     ),
                     const SizedBox(height: 22),
-                    FilterWidget(
+                    const FilterWidget(
                       title: "Flter By",
                       filterBy1: "Income",
                       filterBy2: "Expanse",
@@ -118,7 +118,7 @@ class _TransactionPageState extends State<TransactionPage> {
                       isAvaible: false,
                     ),
                     const SizedBox(height: 16),
-                    FilterWidget(
+                    const FilterWidget(
                       title: "Sort By",
                       filterBy1: "Highest",
                       filterBy2: "Lowest",
